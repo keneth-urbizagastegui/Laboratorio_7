@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipo de Cambio - AWS Laboratorio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="text-center mb-0">
+                            <i class="bi bi-currency-exchange"></i> Tipo de Cambio Actual
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        {% if error %}
+                        <div class="alert alert-warning" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill"></i> 
+                            No se pudieron obtener los datos actualizados. Mostrando valores aproximados.
+                        </div>
+                        {% endif %}
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Moneda</th>
+                                        <th>Código</th>
+                                        <th class="text-end">Valor (USD Base)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-currency-dollar text-success"></i> 
+                                            Dólar Estadounidense
+                                        </td>
+                                        <td><span class="badge bg-secondary">USD</span></td>
+                                        <td class="text-end fw-bold">{{ "%.4f"|format(rates.USD) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-currency-euro text-primary"></i> 
+                                            Euro
+                                        </td>
+                                        <td><span class="badge bg-secondary">EUR</span></td>
+                                        <td class="text-end fw-bold">{{ "%.4f"|format(rates.EUR) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-currency-exchange text-warning"></i> 
+                                            Nuevo Sol Peruano
+                                        </td>
+                                        <td><span class="badge bg-secondary">PEN</span></td>
+                                        <td class="text-end fw-bold">{{ "%.4f"|format(rates.PEN) }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <small class="text-muted">
+                                <i class="bi bi-clock"></i> 
+                                Datos en tiempo real
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

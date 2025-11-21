@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Vehículo{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">
+                    <i class="bi bi-plus-circle"></i> Agregar Nuevo Vehículo
+                </h2>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">
+                            <i class="bi bi-building"></i> Marca
+                        </label>
+                        <input type="text" class="form-control" id="marca" name="marca" required
+                               placeholder="Ej: Toyota, Honda, Ford">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">
+                            <i class="bi bi-car-front"></i> Modelo
+                        </label>
+                        <input type="text" class="form-control" id="modelo" name="modelo" required
+                               placeholder="Ej: Corolla, Civic, Focus">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">
+                            <i class="bi bi-currency-dollar"></i> Precio
+                        </label>
+                        <input type="number" class="form-control" id="precio" name="precio" required
+                               min="0" step="0.01" placeholder="Ej: 25000.00">
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Guardar Vehículo
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

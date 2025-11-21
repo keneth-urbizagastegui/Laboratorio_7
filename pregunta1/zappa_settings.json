@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "app_function": "app.app",
+        "aws_region": "us-east-1",
+        "project_name": "lab07-divisas",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-lab07-divisas-final",
+        "manage_roles": false,
+        "role_arn": "arn:aws:iam::021415649882:role/LabRole",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "lambda_handler": "handler.lambda_handler"
+    }
+}
